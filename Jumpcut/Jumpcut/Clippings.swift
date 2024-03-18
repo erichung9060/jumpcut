@@ -53,7 +53,7 @@ public class ClippingStack: NSObject {
         super.init()
         self.store.maxLength = UserDefaults.standard.value(
             forKey: SettingsPath.rememberNum.rawValue
-        ) as? Int ?? 99
+        ) as? Int ?? 10000
     }
 
     func checkWriteAccess() -> Bool {
@@ -165,7 +165,7 @@ private class ClippingStore: NSObject {
 
     // TK: Back with sqlite3 for persistence
     private var clippings: [Clipping] = []
-    private var _maxLength = 99
+    private var _maxLength = 10000
     private let plistUrl: URL?
     fileprivate var skipSave: Bool
 
@@ -273,7 +273,7 @@ private class ClippingStore: NSObject {
         let data = JCEngine(
             displayNum: UserDefaults.standard.value(forKey: SettingsPath.displayNum.rawValue) as? Int ?? 10,
             jcList: items,
-            rememberNum: UserDefaults.standard.value(forKey: SettingsPath.displayNum.rawValue) as? Int ?? 99,
+            rememberNum: UserDefaults.standard.value(forKey: SettingsPath.displayNum.rawValue) as? Int ?? 10000,
             version: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
         )
         let encoder = PropertyListEncoder()

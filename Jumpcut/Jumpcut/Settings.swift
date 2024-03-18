@@ -61,7 +61,7 @@ private let settingsDefaults: [String: Any] = [
     SettingsPath.bezelSelectionPastes.rawValue: true,
     SettingsPath.bezelToTop.rawValue: 1,
     SettingsPath.checkForUpdates.rawValue: false,
-    SettingsPath.displayNum.rawValue: 10,
+    SettingsPath.displayNum.rawValue: 1000,
     SettingsPath.hideStatusItem.rawValue: false,
     SettingsPath.ignoreLargeClippings.rawValue: true,
     SettingsPath.ignoreSensitiveClippingTypes.rawValue: true,
@@ -76,7 +76,7 @@ private let settingsDefaults: [String: Any] = [
     SettingsPath.menuSelectionPastes.rawValue: true,
     SettingsPath.moveClippingsAfterUse.rawValue: false,
     SettingsPath.menuIcon.rawValue: 0,
-    SettingsPath.rememberNum.rawValue: 99,
+    SettingsPath.rememberNum.rawValue: 10000,
     SettingsPath.skipSave.rawValue: false,
     SettingsPath.stickyBezel.rawValue: false,
     SettingsPath.wraparoundBezel.rawValue: false
@@ -293,7 +293,7 @@ public class Settings: NSObject {
         let stpLabel = makeLabel(title: title)
         stpLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
         let stpDisplay = makeLabel(title: "")
-        stpDisplay.preferredMaxLayoutWidth = CGFloat(15.0)
+        stpDisplay.preferredMaxLayoutWidth = CGFloat(50.0)
         stp.bind(.value,
                  to: UserDefaults.standard,
                  withKeyPath: key.rawValue,
